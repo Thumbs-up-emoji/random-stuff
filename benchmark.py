@@ -1,6 +1,7 @@
 # has some trouble with 7 vs 1, and sometimes doesn't actually copy to clipboard but good enough for now
 # need to try automatic input, hitting ctrl+v every time is good, but not enough
 # also can try pytesseract alternatives
+# need to try further preprocessing, see bing chat
 import cv2
 import numpy as np
 import pytesseract
@@ -32,7 +33,8 @@ while True:
     text = pytesseract.image_to_string(image, config='--psm 6 outputbase digits')
 
     # Copy text to clipboard
-    pyperclip.copy(text)
+    if text.strip():
+        pyperclip.copy(text)
 
     # Print the text
     print(text)
