@@ -5,7 +5,7 @@
 import cv2
 import numpy as np
 import pytesseract
-from PIL import ImageGrab
+from mss import mss
 import time
 import keyboard
 import pyperclip
@@ -18,16 +18,27 @@ stop_program = False
 
 while True:
     # Capture the screen or a part of it
-    image = ImageGrab.grab(bbox=(0, 450, 900, 580))
+    with mss() as sct:
+        region = {'top': 450, 'left': 0, 'width': 900, 'height': 580}
+        image = sct.grab(region)
     
     # Convert the image to grayscale
-    image = cv2.cvtColor(np.array(image), cv2.COLOR_BGR2GRAY)
+    image = cv2.cvtColor(np.array(image), cv2.COLOR_RGBA2GRAY)
 
-    # Apply Gaussian blur
-    image = cv2.GaussianBlur(image, (5, 5), 0)
+    # Invert the color scheme
+    image = cv2.bitwise_not(image)
+
+    # Resize the image
+    new_size = (image.shape[1]*2, image.shape[0]*2)  # Double the size
+    image = cv2.resize(image, new_size)
 
     # Apply thresholding to binarize the image
-    _, image = cv2.threshold(image, 200, 255, cv2.THRESH_BINARY)
+    _, image = cv2.threshold(image, 210, 255, cv2.THRESH_BINARY)
+
+    if keyboard.is_pressed('s'):    
+        cv2.imshow('image', image)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
 
     # Read the text from the image
     text = pytesseract.image_to_string(image, config='--psm 6 outputbase digits')
@@ -40,7 +51,7 @@ while True:
     print(text)
 
     # Start a separate loop to count down from 6 to 1
-    for i in range(2, 0, -1):
+    for i in range(1, 0, -1):
         # Print the remaining time before the next loop
         print(f"Time before next loop: {i} seconds")
 
