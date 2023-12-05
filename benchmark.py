@@ -37,8 +37,7 @@ while True:
 
     if keyboard.is_pressed('s'):    
         cv2.imshow('image', image)
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
+        cv2.waitKey(1)
 
     # Read the text from the image
     text = pytesseract.image_to_string(image, config='--psm 6 outputbase digits')
@@ -66,4 +65,5 @@ while True:
 
     # Check the flag variable outside the inner loop
     if stop_program:
+        cv2.destroyAllWindows()
         break
