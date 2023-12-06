@@ -1,14 +1,16 @@
 # need to try automatic input, hitting ctrl+v every time is good, but not enough
 # also can try pytesseract alternatives
-# need to try further preprocessing, see bing chat
+# need to try further preprocessing, see brave bookmarks
 import cv2
 import numpy as np
 import pytesseract
 from mss import mss
 import time
 import keyboard
-import pyperclip
+import pyautogui
 import re
+
+pyautogui.FAILSAFE = True
 
 # Specify the path to the Tesseract executable
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
@@ -46,10 +48,15 @@ while True:
     # Extract only the digits from the text
     digits_text = ''.join(re.findall('\d+', text))
 
-    # Copy text to clipboard
-    if digits_text:  # If digits_text is not empty
-        pyperclip.copy(digits_text)
+    if digits_text:  
+    # Move the mouse to the desired location (x, y)
+        pyautogui.moveTo(100, 200)  # replace 100, 200 with your desired coordinates
 
+        # Click the mouse
+        pyautogui.click()
+
+        # Type the text
+        pyautogui.write(digits_text)
     # Print the text
     print(text)
 
