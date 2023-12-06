@@ -1,4 +1,3 @@
-# has some trouble with 7 vs 1, and sometimes doesn't actually copy to clipboard but good enough for now
 # need to try automatic input, hitting ctrl+v every time is good, but not enough
 # also can try pytesseract alternatives
 # need to try further preprocessing, see bing chat
