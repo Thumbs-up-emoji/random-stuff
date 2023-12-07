@@ -1,22 +1,16 @@
-import mss
-import numpy as np
+from PIL import ImageGrab
 import pyautogui
 
 # Define the pixel to monitor
-monitor = {"top": 500, "left": 200, "width": 1, "height": 1}
+bbox = (200, 500, 201, 501)
 
-with mss.mss() as sct:
-    while True:
-        # Capture the pixel
-        screenshot = sct.grab(monitor)
-        # print(screenshot) debug line
-        # Convert the screenshot to a numpy array
-        img = np.array(screenshot)
-        # print(img) debug line
-
-        # Check the pixel
-        if np.all(img[0, 0][:3] == [106, 219, 75]):
-            # Click without moving the mouse
-            print("Green!")
-            pyautogui.click()
-            break
+while True:
+    # Capture the pixel
+    img = ImageGrab.grab(bbox=bbox)
+    # print(img.getpixel((0, 0))) debugging line
+    # Check the pixel
+    if img.getpixel((0, 0)) == (75, 219, 106): # colour in bgr
+        # Click without moving the mouse
+        print("Green!")
+        pyautogui.click()
+        break
