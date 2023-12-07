@@ -1,6 +1,7 @@
-# need to try automatic input, hitting ctrl+v every time is good, but not enough
-# also can try pytesseract alternatives
-# need to try further preprocessing, see brave bookmarks
+# press enter automatically
+# need to try further preprocessing to solve accuracy issues, see brave bookmarks
+# else could look into tesseract alternatives
+# worst case, could try to train tesseract to recognize the font
 import cv2
 import numpy as np
 import pytesseract
@@ -50,13 +51,20 @@ while True:
 
     if digits_text:  
     # Move the mouse to the desired location (x, y)
-        pyautogui.moveTo(100, 200)  # replace 100, 200 with your desired coordinates
+        pyautogui.moveTo(500, 450)  # replace 100, 200 with your desired coordinates
 
         # Click the mouse
         pyautogui.click()
 
+        time.sleep(0.5)
+
         # Type the text
         pyautogui.write(digits_text)
+        #pyautogui.press('enter')
+
+        #time.sleep(0.5)
+
+        #pyautogui.press('enter')
     # Print the text
     print(text)
 
