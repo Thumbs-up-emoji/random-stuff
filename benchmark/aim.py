@@ -1,14 +1,23 @@
-# Import the necessary libraries
-from PIL import ImageGrab
+# optimise for speed
+import mss
+import numpy as np
 import pyautogui
 import keyboard
 
+# for speed
+pyautogui.FAILSAFE = False
+pyautogui.PAUSE = 0.0
+pyautogui.MINIMUM_DURATION = 0.0
+
 # Define the target colors
-target_color1 = (149, 195, 232)  
-target_color2 = (255, 255, 255)  
+target_color = (232, 195, 149)  
+target_colour = (255, 255, 255) 
 
 # Define the pixel to monitor
 monitor = {"top": 200, "left": 170, "width": 600, "height": 280}
+
+# Start the test
+pyautogui.click(470, 340)
 
 # Initialize the counter
 counter = 0
@@ -19,31 +28,37 @@ while True:
     if keyboard.is_pressed('esc'):
         break
 
-    # Capture the screenshot
-    screenshot = ImageGrab.grab(bbox=(monitor['left'], monitor['top'], monitor['left'] + monitor['width'], monitor['top'] + monitor['height']))
+    with mss.mss() as sct:   
+        # Capture the screenshot
+        screenshot = sct.grab(monitor)
+        # Convert the screenshot to a numpy array
+        img = np.array(screenshot)
 
-    # Iterate over the pixels in the image
-    for y in range(0, screenshot.height, 30):
-        for x in range(0, screenshot.width, 30):
-            # Increment the counter
-            counter += 1
-            print(f"x: {x}, y: {y}")
-            # If the pixel color matches either of the target colors
-            if screenshot.getpixel((x, y)) == target_color1 or screenshot.getpixel((x, y)) == target_color2:
-                # Print the number of pixels checked
-                print(f"Checked {counter} pixels.")
+        # Initialize the flag
+        found = False
 
-                # Move the mouse to the pixel and click it
-                pyautogui.moveTo(monitor['left'] + x, monitor['top'] + y)
-                pyautogui.click()
+        # Iterate over the pixels in the image
+        for y in range(0, img.shape[0], 20):
+            for x in range(0, img.shape[1], 20):
+                # Increment the counter
+                counter += 1
 
-                # Reset the counter
-                counter = 0
+                # If the pixel color matches the target color
+                if tuple(img[y, x][:3]) == target_color or tuple(img[y, x][:3]) == target_colour:
+                    # Print the number of pixels checked
+                    print(f"Checked {counter} pixels.")
 
-                # Break the inner for loop
+                    # Move the mouse to the pixel and click it
+                    pyautogui.moveTo(monitor['left'] + x, monitor['top'] + y)
+                    pyautogui.click()
+
+                    # Reset the counter
+                    counter = 0
+
+                    # Set the flag to True and break the inner loop
+                    found = True
+                    break
+
+            # If the target color was found, break the outer loop
+            if found:
                 break
-        else:
-            # If the target color was not found in the current row, continue with the next row
-            continue
-        # If the target color was found and clicked, break the outer for loop
-        break
