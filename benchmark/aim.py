@@ -1,17 +1,18 @@
-# optimise for speed
+# remember to zoom to 50% and use in 50-50 splitscreen
+# bug causing double clicks? won't let me stop at count=30, and keeps hitting try again, can try adding a check for yellow, but speed
 import mss
 import numpy as np
 import pyautogui
 import keyboard
 
 # for speed
-pyautogui.FAILSAFE = False
+#pyautogui.FAILSAFE = False
 pyautogui.PAUSE = 0.0
 pyautogui.MINIMUM_DURATION = 0.0
 
 # Define the target colors
-target_color = (232, 195, 149)  
-target_colour = (255, 255, 255) 
+target_color = np.array([232, 195, 149])  
+target_colour = np.array([255, 255, 255]) 
 
 # Define the pixel to monitor
 monitor = {"top": 200, "left": 170, "width": 600, "height": 280}
@@ -20,7 +21,7 @@ monitor = {"top": 200, "left": 170, "width": 600, "height": 280}
 pyautogui.click(470, 340)
 
 # Initialize the counter
-counter = 0
+#counter = 0
 
 # Start an infinite loop
 while True:
@@ -41,19 +42,17 @@ while True:
         for y in range(0, img.shape[0], 20):
             for x in range(0, img.shape[1], 20):
                 # Increment the counter
-                counter += 1
+                #counter += 1
 
                 # If the pixel color matches the target color
-                if tuple(img[y, x][:3]) == target_color or tuple(img[y, x][:3]) == target_colour:
-                    # Print the number of pixels checked
-                    print(f"Checked {counter} pixels.")
+                if np.array_equal(img[y, x][:3], target_color) or np.array_equal(img[y, x][:3], target_colour):
+                    
+                    #print(f"Checked {counter} pixels.") Debugging line
 
-                    # Move the mouse to the pixel and click it
-                    pyautogui.moveTo(monitor['left'] + x, monitor['top'] + y)
-                    pyautogui.click()
+                    # Click the pixel
+                    pyautogui.click(monitor['left'] + x, monitor['top'] + y)
 
-                    # Reset the counter
-                    counter = 0
+                    #counter = 0
 
                     # Set the flag to True and break the inner loop
                     found = True
