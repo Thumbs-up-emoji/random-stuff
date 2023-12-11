@@ -7,7 +7,7 @@ import keyboard
 
 # for speed
 #pyautogui.FAILSAFE = False
-pyautogui.PAUSE = 0.0
+pyautogui.PAUSE = 0.025 # set 0.0 for speed, but then it won't stop at 30
 pyautogui.MINIMUM_DURATION = 0.0
 
 # Define the target colors
@@ -21,12 +21,12 @@ monitor = {"top": 200, "left": 170, "width": 600, "height": 280}
 pyautogui.click(470, 340)
 
 # Initialize the counter
-#counter = 0
+counter = 0
 
 # Start an infinite loop
 while True:
     # Break the loop if Esc is pressed
-    if keyboard.is_pressed('esc'):
+    if keyboard.is_pressed('esc') or counter >= 30: # remove counter for max speed due to double clicks
         break
 
     with mss.mss() as sct:   
@@ -41,8 +41,6 @@ while True:
         # Iterate over the pixels in the image
         for y in range(0, img.shape[0], 20):
             for x in range(0, img.shape[1], 20):
-                # Increment the counter
-                #counter += 1
 
                 # If the pixel color matches the target color
                 if np.array_equal(img[y, x][:3], target_color) or np.array_equal(img[y, x][:3], target_colour):
@@ -52,7 +50,7 @@ while True:
                     # Click the pixel
                     pyautogui.click(monitor['left'] + x, monitor['top'] + y)
 
-                    #counter = 0
+                    counter += 1
 
                     # Set the flag to True and break the inner loop
                     found = True
