@@ -1,5 +1,4 @@
 # remember to zoom to 50% and use in 50-50 splitscreen
-# bug causing double clicks? won't let me stop at count=30, and keeps hitting try again, can try adding a check for yellow, but speed
 import mss
 import numpy as np
 import pyautogui
