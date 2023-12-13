@@ -44,30 +44,29 @@ while True:
         cv2.waitKey(0)
 
     # Read the text from the image
-    text = pytesseract.image_to_string(image, config='--psm 6 outputbase digits')
+    text=pytesseract.image_to_string(image, config='--psm 6 -c tessedit_char_whitelist=0123456789')
 
     # Extract only the digits from the text
-    digits_text = ''.join(re.findall('\d+', text))
+    digits = ''.join(re.findall('\d+', text))
 
-    if digits_text:  
-    # Move the mouse to the desired location (x, y)
-        pyautogui.moveTo(500, 450)  # replace 100, 200 with your desired coordinates
-
-        # Click the mouse
-        pyautogui.click()
-
+    if digits:
         time.sleep(0.5)
-
+        digits_text = digits
         # Type the text
         pyautogui.write(digits_text)
+
+        print(digits_text)
         #pyautogui.press('enter')
 
         #time.sleep(0.5)
 
         #pyautogui.press('enter')
-    # Print the text
-    print(text)
-
+        # Print the text
+        print(text)
+    else:
+        print("No digits found.")
+        # Click the mouse
+        pyautogui.click(468, 535)
     #countdown
     for i in range(1, 0, -1):
         # Print the remaining time before the next loop
