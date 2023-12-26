@@ -1,9 +1,32 @@
 from youtube_search import YoutubeSearch
-import subprocess
+import webbrowser
 import time
-from PIL import ImageGrab
+from PIL import ImageGrab , Image
 import keyboard
 import pyautogui
+import numpy as np
+from skimage.metrics import structural_similarity as ssim
+
+def vid_over(frame):
+    image_path="C:\\Users\\ASUS\\Downloads\\Screenshot (203).png"
+    pre_image = np.array(Image.open(image_path).convert("RGB")) #37 x 41 x 3
+    # Crop the frame
+    cframe = frame[1025:1066, 56:93]  # Replace with your values
+    # Ensure the images are the same size
+    if cframe.shape != pre_image.shape:
+        print("Images must be the same size.")
+        return False
+    else:
+        print("Images are the same size.")
+    # Compare the two images
+    similarity = ssim(cframe, pre_image, multichannel=True)
+
+    # If the similarity is above a certain threshold, consider the images as equal
+    if similarity > 0.9:  # You can adjust this threshold as needed
+        print("Video over")
+        return True
+    else:
+        return False
 
 def scrape():
     # Get the pose name from the user
@@ -29,12 +52,9 @@ def scrape():
     # Search for the term on YouTube
     results = YoutubeSearch(search_term, max_results=n).to_dict()
 
-    brave_path = r"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe" 
-
-
     for video in results:
         url = 'https://www.youtube.com' + video['url_suffix']
-        subprocess.Popen([brave_path, '--incognito', url])
+        webbrowser.open(url)
         time.sleep(10)  # Wait for the browser window to become active
         
         # Click on the browser window to bring it into focus
@@ -58,6 +78,11 @@ def scrape():
             
             # Capture the screen
             img = ImageGrab.grab()
+            
+            np_img=np.array(img)
+
+            if(vid_over(np_img)):
+                break
 
             # Save the image as a JPG file
             img.save(f'C:\\Users\\ASUS\\OneDrive - BITS Pilani K K Birla Goa Campus\\Desktop\\Stuff\\CS\\random-stuff\\yoga_pics\\{pose_name}{i}.jpg')
@@ -70,3 +95,5 @@ def scrape():
 
         # Close the current tab
         pyautogui.hotkey('ctrl', 'w')
+
+scrape()

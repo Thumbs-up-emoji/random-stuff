@@ -1,0 +1,1 @@
+# make an extension (not in python) that replaces the "/shorts/" in urls for youtube shorts with "/watch?v=" so that the video can be played in the default youtube player
