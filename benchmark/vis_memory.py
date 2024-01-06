@@ -1,7 +1,7 @@
-import pyautogui
+import mss
+import numpy as np
+import pyautogui    
 
-while True:
-# Get the current mouse position
-    x, y = pyautogui.position()
-    print(f"The current mouse position is {x}, {y}")
+monitor = {"top": 200, "left": 170, "width": 600, "height": 280}
 
+target_color = np.array([255, 255, 255])    
