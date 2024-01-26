@@ -8,6 +8,6 @@ print(emails)
 count=1
 
 for i in range (len(ids)):
-    send_email('Subject', ids.iloc[i, 0], 'vineetkrishnachess@gmail.com', emails.iloc[i, 0], 'ighk xpti gcfi beto')
+    send_email('Subject', ids.iloc[i, 0], 'vineetkrishna.bitsmun@gmail.com', emails.iloc[i, 0], 'ohjj rttc xihf mqez')
     print('Sent '+ids.iloc[i,0]+' to ' + emails.iloc[i, 0])
     

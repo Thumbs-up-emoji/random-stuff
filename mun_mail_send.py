@@ -18,4 +18,4 @@ def send_email(subject, message, from_addr, to_addr, password):
     server.quit()
 
 # usage
-#send_email('Subject', 'Hello, world!', 'vineetkrishnachess@gmail.com', 'vineetkrishna.bitsmun@gmail.com', 'ighk xpti gcfi beto')
+#send_email('Subject', 'Hello, world!', 'vineetkrishna.bitsmun@gmail.com', 'vineetkrishnachess@gmail.com', 'ohjj rttc xihf mqez')
