@@ -29,4 +29,4 @@ if __name__ == "__main__":
     pyautogui.hotkey('alt', 'tab')
     # Wait for 1 second
     time.sleep(0.4)
-    main()
+    main(details)
