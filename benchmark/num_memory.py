@@ -1,5 +1,5 @@
 # need to press enter automatically
-# need to try further preprocessing to solve accuracy issues, see brave bookmarks
+# need to try further preprocessing to solve accuracy issues, see bookmarks
 # else could look into tesseract alternatives
 # worst case, could try to train tesseract to recognize the font
 import cv2
