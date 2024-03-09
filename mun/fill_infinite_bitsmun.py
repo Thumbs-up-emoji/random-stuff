@@ -16,7 +16,7 @@ def main():
         time.sleep(0.4)
 
     # Iterate over each element in the vector
-    for i in range(1,10):
+    for i in range(1,9):
         # Check if 'esc' key is pressed
         if keyboard.is_pressed('esc'):
             return
@@ -26,7 +26,7 @@ def main():
         pyautogui.click(vector[i])
         time.sleep(4.9)
         pyautogui.click(vector[0])
-        time.sleep(1)
+        time.sleep(0.6)
         pyautogui.click(vector[0])
 
         # Fill 82 times for each location

@@ -10,4 +10,5 @@ def read():
     return data
 
 if __name__ == "__main__":
-    read()
+    data=read()
+    print(data)
