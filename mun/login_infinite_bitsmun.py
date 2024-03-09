@@ -2,14 +2,18 @@ import pyautogui
 import time
 import numpy as np
 from mss import mss
+import keyboard  # Import the keyboard library
+from excel_read import read
 
 def main(details):
     time.sleep(0.5)
     # Define the coordinates of the locations
-    locations = [(549, 463), (531, 535), (531, 615), (543, 671), (531, 495), (531, 553), (419, 631), (893, 306), (941, 374), (961, 493), (1007, 589), (866, 666), (976, 740), (1274, 1000)]
-
+    locations = [(549, 498), (531, 570), (531, 650), (543, 706), (531, 530), (531, 588), (419, 666), (893, 341), (941, 449), (961, 538), (1007, 624), (866, 711), (976, 775), (1274, 1005)]
     # Loop over the first three locations
     for i in range(3):
+        # Check if 'esc' key is pressed
+        if keyboard.is_pressed('esc'):
+            return
         # Move the mouse to the location
         pyautogui.click(locations[i])
         pyautogui.click(locations[i])
@@ -25,6 +29,9 @@ def main(details):
 
     # Loop until the screen changes
     while True:
+        # Check if 'esc' key is pressed
+        if keyboard.is_pressed('esc'):
+            return
         # Click the fourth location
         pyautogui.click(locations[3])
         pyautogui.click(locations[3])
@@ -43,6 +50,9 @@ def main(details):
             break  # Exit the loop if the screen has changed
 
     for i in range(4,6):
+        # Check if 'esc' key is pressed
+        if keyboard.is_pressed('esc'):
+            return
         # Move the mouse to the location
         pyautogui.click(locations[i])
         pyautogui.click(locations[i])
@@ -58,6 +68,9 @@ def main(details):
 
     # Loop until the screen changes
     while True:
+        # Check if 'esc' key is pressed
+        if keyboard.is_pressed('esc'):
+            return
         # Click the seventh location
         pyautogui.click(locations[6])
         pyautogui.click(locations[6])
@@ -75,6 +88,9 @@ def main(details):
 
     # Loop over the five newest locations
     for i in range(7, 12):
+        # Check if 'esc' key is pressed
+        if keyboard.is_pressed('esc'):
+            return
         # Move the mouse to the location
         pyautogui.click(locations[i])
         pyautogui.click(locations[i])
@@ -90,6 +106,9 @@ def main(details):
 
     # Loop until the screen changes
     while True:
+        # Check if 'esc' key is pressed
+        if keyboard.is_pressed('esc'):
+            return
         # Click the next location
         pyautogui.click(locations[12])
         pyautogui.click(locations[12])
@@ -109,6 +128,9 @@ def main(details):
 
     # Loop until the screen changes
     while True:
+        # Check if 'esc' key is pressed
+        if keyboard.is_pressed('esc'):
+            return
         # Click the seventh location
         pyautogui.click(locations[13])
         pyautogui.click(locations[13])
@@ -127,4 +149,4 @@ if __name__ == "__main__":
     pyautogui.hotkey('alt', 'tab')
     # Wait for 1 second
     time.sleep(0.4)
-    main()
+    main(read()[0])
