@@ -6,7 +6,7 @@ url = 'https://campnet.bits-goa.ac.in:8090/'
 
 webbrowser.open(url)
 
-time.sleep(0.4)  
+time.sleep(1)  
 
 pyautogui.click(x=888, y=473)  
 pyautogui.write('f20201384')
