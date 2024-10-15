@@ -1,0 +1,1 @@
+//goes to fixed path on android device, and plays music from set folder on shuffle, with loop and loop_single options
