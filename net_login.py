@@ -16,3 +16,6 @@ pyautogui.write('What_If317')
 
 pyautogui.press('enter')
 pyautogui.hotkey('ctrl','w')  
+pyautogui.hotkey('alt','tab')
+pyautogui.hotkey('alt','q')  
+pyautogui.press('enter')
