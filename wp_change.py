@@ -1,3 +1,4 @@
+#deactivate conda before running
 import subprocess
 import sys
 
