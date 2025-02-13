@@ -12,7 +12,7 @@ def main():
         n = int(sys.argv[1])
         sendnotif(n)
     else:
-        print("Please enter the number of minutes as an argument.")
+        sendnotif(n=10)
 
 if __name__ == "__main__":
     main()
