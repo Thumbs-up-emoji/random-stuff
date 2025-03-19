@@ -8,7 +8,7 @@ import requests
 import re
 
 # Set up logging to a file
-log_filename = f"trump_analysis_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+log_filename = "trump_analysis.txt"
 log_file = open(log_filename, "w", encoding="utf-8")
 
 def log_print(message):
@@ -62,7 +62,7 @@ def ask_gemini(url):
         client = genai.Client(api_key=os.environ["GEMINI_KEY"])
         response = client.models.generate_content(
         model="gemini-2.0-flash-exp",
-        contents=["What is this image? Consider as context that you are a busy professor of international history, extremely knowledgable, very blunt, highly opinionated, and you don't take any bullshit. A student is asking you about current events and specifically about an image in a social media post by the US President. Just explain what's in the image simply.",
+        contents=["What is this image? Consider as context that you are a busy professor of international history,  highly opinionated, helpful but curt. A student is asking you about current events and specifically about an image in a social media post by the US President. Just explain what's in the image simply.",
                 types.Part.from_bytes(data=image.content, mime_type="image/jpeg")])
         log_print(response.text)
     except Exception as e:
@@ -144,4 +144,3 @@ if __name__ == "__main__":
         print(f"Total duration: {duration}")  # Use regular print here
     except Exception as e:
         print(f"Unhandled exception: {str(e)}")  # Use regular print here
-        # Don't try to close the file again if it's already closed
