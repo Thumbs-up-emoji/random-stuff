@@ -1,0 +1,86 @@
+{
+  "user": "DOGE",
+  "user_id": 1856751787644260354,
+  "fetched_at": "2025-07-03T10:43:02.713476",
+  "tweets": [
+    {
+      "id": "1940544139680272837",
+      "text": "Contracts Update!\n\nOver the last 4 days, agencies terminated 256 wasteful contracts with a ceiling value of $14.3B and savings of $11.5B, including an $850k USAID professional services contract for a “resilience advisor” in Somalia, and a $198k GSA consulting contract for https://t.co/ufpzwFsxCl",
+      "in_reply_to": null,
+      "links": [],
+      "media": [
+        {
+          "type": "photo",
+          "media_key": "3_1940544134495801344",
+          "url": "https://pbs.twimg.com/media/Gu4ym9-XEAAKcA3.jpg"
+        },
+        {
+          "type": "photo",
+          "media_key": "3_1940544134462230528",
+          "url": "https://pbs.twimg.com/media/Gu4ym92W0AAJcNj.jpg"
+        }
+      ]
+    },
+    {
+      "id": "1938713291809005734",
+      "text": "Unused phone line update!\n\n@SBAgov has continued its phone audit and has now saved  ~$2.84M/year in unnecessary spend. \n\nThis includes: \n* Traditional Landlines: 96% (661 of 686) terminated, saving ~$650k/year\n* Mobile Phone: 55% (2,940 of 5,340) deactivated, saving ~$1.7M/year\n* https://t.co/DFnuqLHs4B",
+      "in_reply_to": null,
+      "links": [
+        {
+          "url": "https://t.co/DFnuqLHs4B",
+          "expanded_url": "https://twitter.com/doge/status/1931792275878863276",
+          "display_url": "x.com/doge/status/19…"
+        }
+      ],
+      "media": []
+    },
+    {
+      "id": "1938711871445475585",
+      "text": "Weather Radio Update!\n\nSince the last update, @NWS has upgraded 33 more sites to wireless, saving $118k/mo in copper contracts. See below transmission from Conway Summit, CA. \n\nThe team has ramped up production of the wireless kits from 9 to 50/wk. ~340 sites to go! https://t.co/agNGSHL3gL https://t.co/uV4G6cTz60",
+      "in_reply_to": null,
+      "links": [
+        {
+          "url": "https://t.co/uV4G6cTz60",
+          "expanded_url": "https://twitter.com/doge/status/1932903497491681716",
+          "display_url": "x.com/doge/status/19…"
+        }
+      ],
+      "media": [
+        {
+          "type": "video",
+          "media_key": "13_1938711786695348224"
+        },
+        {
+          "type": "photo",
+          "media_key": "3_1938711786632433664",
+          "url": "https://pbs.twimg.com/media/GuewGSQW0AAahet.jpg"
+        }
+      ]
+    },
+    {
+      "id": "1938648161339523181",
+      "text": "RT: Outdated contracts &amp; redundancies are being removed as @USGSA sharpens focus on wasteful contracts, efficiency, &amp; taxpayer return––reducing admin burden &amp; strengthening acquisition performance. Thank you for help on this effort @DOGE! https://t.co/lhuUw3qvZx",
+      "in_reply_to": null,
+      "links": [],
+      "media": []
+    },
+    {
+      "id": "1938215636003389489",
+      "text": "Contracts Update!\n\nOver the last 7 days, agencies have terminated 312 wasteful contracts with a ceiling value of $2.8B and savings of $470M, including a DoD $286k professional and management development contract for an “entrepreneurship course at Harvard University”, and a $485k https://t.co/iHwMhZgyzY",
+      "in_reply_to": null,
+      "links": [],
+      "media": [
+        {
+          "type": "photo",
+          "media_key": "3_1938215625119121408",
+          "url": "https://pbs.twimg.com/media/GuXs14lWQAAbAbY.jpg"
+        },
+        {
+          "type": "photo",
+          "media_key": "3_1938215625106571264",
+          "url": "https://pbs.twimg.com/media/GuXs14iWwAAvPfm.jpg"
+        }
+      ]
+    }
+  ]
+}
