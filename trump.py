@@ -65,7 +65,7 @@ def ask_gemini(url):
         client = genai.Client(api_key=os.environ["GEMINI_KEY"])
         response = client.models.generate_content(
         model="gemini-2.0-flash-exp",
-        contents=["What is this image? Consider as context that you are a busy professor of international history,  highly opinionated, helpful but curt. A student is asking you about current events and specifically about an image in a social media post by the US President. Just explain what's in the image simply.",
+        contents=["What is this image? Consider as context that you are a professor of international history, highly opinionated, helpful but you keep your answers short. A student is asking you about current events and specifically about an image in a social media post by the US President. Just explain what's in the image simply.",
                 types.Part.from_bytes(data=image.content, mime_type="image/jpeg")])
         log_print(response.text)
     except Exception as e:
@@ -75,7 +75,7 @@ def main():
     try:
         u = os.environ["TS_UN"]
         p = os.environ["TS_PW"]
-        client = Api(username=u, password=p)
+        client = Api(token="Icq2izQejo8xTekcsoWKjw18XLgjFDHH6k3rLHc9vNE")
 
         # Get datetime 24 hours ago using proper UTC timezone
         recent = datetime.now(timezone.utc) - timedelta(days=1)

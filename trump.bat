@@ -1,0 +1,13 @@
+@echo off
+set MISTRAL_KEY=uWjj3FIiMjor06aAyglMsjBMvpFIozoD
+set GEMINI_KEY=AIzaSyA-XGK2sk3wOkQVARivRx55KLFpLsxHz2U
+set TS_UN=mediocretroll
+set TS_PW=Idontreallycare
+set http_proxy=http://localhost:8191/v1
+set https_proxy=http://localhost:8191/v1
+set X_API_KEY="usRzrC7q4ROwQq5eyqacZ3C2N"
+set X_API_SECRET="Ba7QSU8jvpqriOZfYJX1SboReCgURvvMR5sL86Kk0zXkJwgb3j"
+set X_BEARER_TOKEN=AAAAAAAAAAAAAAAAAAAAAPoH2AEAAAAAdxfnp%2BDruKGywaYYrb49UBiANUs%3DW60Ige7csONJhWrcacWbQrjRpAS7goFgf5LpLUBrXiI84ZxVd
+set X_ACCESS_TOKEN="1926866350258950144-rwuXOdzzGk2IbqHFuM9DeceJYQjZ3n"
+set X_ACCESS_TOKEN_SECRET="b8BQlUoNmdx7G0YbWOXhosmEylzV52mJxicGPZKIqKuNq"
+python trump.py
