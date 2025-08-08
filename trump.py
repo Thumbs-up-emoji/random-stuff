@@ -51,7 +51,10 @@ def ask_mistral(msg):
                 },
             ]
         )
-        log_print(chat_response.choices[0].message.content)
+        if chat_response.choices and getattr(chat_response.choices[0], "message", None) and getattr(chat_response.choices[0].message, "content", None):
+            log_print(chat_response.choices[0].message.content)
+        else:
+            log_print("No response content received from Mistral.")
     except Exception as e:
         log_print(f"Error in ask_mistral: {str(e)}")
 

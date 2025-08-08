@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # The MAC address of your Bluetooth headphones
-DEVICE_MAC="28:6F:40:8B:71:A7"
+DEVICE_MAC="80:C3:BA:6F:1A:EB"
 
 # Function to check if the device is connected
 check_connection() {
