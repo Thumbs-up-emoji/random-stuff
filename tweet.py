@@ -48,8 +48,8 @@ def fetch_tweets(user_choice):
     )
     
     # Create lookup dictionaries for included data
-    included_tweets = {tweet.id: tweet for tweet in response.includes['tweets']} if response.includes and 'tweets' in response.includes else {}
-    included_media = {media.media_key: media for media in response.includes['media']} if response.includes and 'media' in response.includes else {}
+    included_tweets = {tweet.id: tweet for tweet in response.includes['tweets']} if response.includes and 'tweets' in response.includes else {}  # type: ignore[reportAttributeAccessIssue]
+    included_media = {media.media_key: media for media in response.includes['media']} if response.includes and 'media' in response.includes else {}  # type: ignore[reportAttributeAccessIssue]
 
     # Prepare data structure for JSON
     tweets_data = {
@@ -60,7 +60,7 @@ def fetch_tweets(user_choice):
     }
     
     # Collect tweet data
-    for tweet in response.data:
+    for tweet in response.data:  # type: ignore[reportAttributeAccessIssue]
         text = tweet.text
         
         tweet_info = {
