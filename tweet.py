@@ -4,8 +4,7 @@ import json
 from datetime import datetime
 from trump import ask_gemini, ask_mistral
 
-# bearer_token = os.environ["X_BEARER_TOKEN"]
-bearer_token="AAAAAAAAAAAAAAAAAAAAAPoH2AEAAAAAdxfnp%2BDruKGywaYYrb49UBiANUs%3DW60Ige7csONJhWrcacWbQrjRpAS7goFgf5LpLUBrXiI84ZxVdl"
+bearer_token = os.environ["X_BEARER_TOKEN"]
 # print(bearer_token)
 client = tweepy.Client(bearer_token, wait_on_rate_limit=True)
 

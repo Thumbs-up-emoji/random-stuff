@@ -75,7 +75,7 @@ def main():
     try:
         u = os.environ["TS_UN"]
         p = os.environ["TS_PW"]
-        client = Api(token="Icq2izQejo8xTekcsoWKjw18XLgjFDHH6k3rLHc9vNE")
+        client = Api(token=os.environ["TS_TOKEN"])
 
         # Get datetime 24 hours ago using proper UTC timezone
         recent = datetime.now(timezone.utc) - timedelta(days=1)
