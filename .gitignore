@@ -1,5 +1,5 @@
 *.txt
 login_details.csv
-trump.bat
+social_media_ai/trump.bat
 __pycache__/
-tweets.json
+social_media_ai/tweets.json
