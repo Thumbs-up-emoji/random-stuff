@@ -32,7 +32,7 @@ pyautogui.click(x=1044, y=432)
 pyautogui.write(password)
 
 pyautogui.press('enter')
-time.sleep(1)
+time.sleep(0.7)
 pyautogui.hotkey('ctrl','w')  
 pyautogui.hotkey('alt','tab')
 pyautogui.hotkey('alt','q')  
