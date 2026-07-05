@@ -3,3 +3,8 @@ login_details.csv
 social_media_ai/trump.bat
 __pycache__/
 social_media_ai/tweets.json
+*.exe
+Prep/.env
+Prep/.vscode/settings.json
+.gitignore
+Prep/.vscode/tasks.json
